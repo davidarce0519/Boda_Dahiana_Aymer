@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Buscador de Invitados</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Montserrat:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,600;0,700;1,400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="busqueda.css">
+</head>
+<body>
+
+    <section class="search-section">
+        <div class="search-container">
+            
+            <div class="ribbon-banner">
+                <h2>Confirma tu Asistencia</h2>
+            </div>
+
+            <p class="search-description">Ingresa tu nombre y apellido para encontrar tu invitación:</p>
+
+            <div class="autocomplete-wrapper">
+                <input type="text" id="guest-input" placeholder="Escribe tu nombre aquí..." autocomplete="off">
+                <ul id="suggestions-list" class="suggestions-list"></ul>
+            </div>
+
+            <div id="result-card" class="result-card hidden">
+                <h3 id="guest-name"></h3>
+                <p id="guest-passes" class="passes-info"></p>
+                <button id="view-card-btn" class="location-btn">VER INVITACIÓN</button>
+            </div>
+
+        </div>
+    </section>
+
+    <script src="invitados.js"></script>
+
+    <script>
+        const invitados = invitadosData;
+        let selectedGuestId = null;
+
+        const guestInput = document.getElementById('guest-input');
+        const suggestionsList = document.getElementById('suggestions-list');
+        const resultCard = document.getElementById('result-card');
+        const guestName = document.getElementById('guest-name');
+        const guestPasses = document.getElementById('guest-passes');
+        const viewCardBtn = document.getElementById('view-card-btn');
+
+        function cleanText(text) {
+            return text.normalize("NFD").replace(/[\u0300-\u036f]/g, "").toLowerCase();
+        }
+
+        guestInput.addEventListener('input', function () {
+            const query = cleanText(this.value.trim());
+            suggestionsList.innerHTML = '';
+            resultCard.classList.add('hidden');
+            selectedGuestId = null;
+
+            if (query.length < 1) {
+                suggestionsList.classList.remove('active');
+                return;
+            }
+
+            const matches = invitados.filter(guest => cleanText(guest.nombre).includes(query));
+
+            if (matches.length > 0) {
+                matches.forEach(guest => {
+                    const li = document.createElement('li');
+                    li.textContent = guest.nombre;
+                    li.addEventListener('click', () => selectGuest(guest));
+                    suggestionsList.appendChild(li);
+                });
+                suggestionsList.classList.add('active');
+            } else {
+                suggestionsList.classList.remove('active');
+            }
+        });
+
+        function selectGuest(guest) {
+            guestInput.value = guest.nombre;
+            selectedGuestId = guest.id;
+            suggestionsList.classList.remove('active');
+
+            const grupoNombres = guest.integrantes.join(" & ");
+            guestName.textContent = grupoNombres;
+            
+            if (guest.integrantes.length > 1) {
+                guestPasses.textContent = `Pases asignados para ustedes: ${guest.pases} personas.`;
+            } else {
+                guestPasses.textContent = `Tienes ${guest.pases} ${guest.pases === 1 ? 'pase reservado' : 'pases reservados'}.`;
+            }
+
+            resultCard.classList.remove('hidden');
+        }
+
+        // Redireccionar al hacer clic en el botón enviando el ID
+        viewCardBtn.addEventListener('click', function () {
+            if (selectedGuestId) {
+                window.location.href = `Principal.html?id=${selectedGuestId}`;
+            }
+        });
+
+        document.addEventListener('click', function (e) {
+            if (!guestInput.contains(e.target) && !suggestionsList.contains(e.target)) {
+                suggestionsList.classList.remove('active');
+            }
+        });
+    </script>
+</body>
+</html>

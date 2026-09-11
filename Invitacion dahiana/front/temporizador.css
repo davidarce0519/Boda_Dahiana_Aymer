@@ -1,0 +1,152 @@
+/* Variables de color de la imagen de referencia */
+:root {
+    --gold-accent: #C49A45;
+    --green-olive: #6E887B;
+    --text-dark: #555555;
+    --divider-color: #E2DDD5;
+    --bg-white: #FFFFFF;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-color: #F9F8F6;
+    font-family: 'Helvetica Neue', Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+
+.countdown-section {
+    padding: 20px;
+    text-align: center;
+}
+
+/* Marco decorativo contenedor */
+.countdown-container {
+    position: relative;
+    width: 380px;
+    height: 380px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+    /* Centrado exacto del fondo */
+    background-image: url('../fotos_boda/marco_boda.png');
+    background-position: center center;
+    background-size: contain;
+    background-repeat: no-repeat;
+}
+
+/* Círculo blanco central con sombra suave */
+.timer-circle {
+    width: 250px;
+    height: 250px;
+    background-color: var(--bg-white);
+    border-radius: 50%;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    z-index: 2;
+}
+
+/* Título "Falta" */
+.timer-title {
+    font-family: 'Georgia', serif;
+    font-size: 2.2rem;
+    color: var(--gold-accent);
+    font-weight: 300;
+    margin-bottom: 10px;
+}
+
+/* Contenedor flexible del temporizador */
+.timer {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+}
+
+/* Tarjeta individual de número/etiqueta */
+.time-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 0 12px;
+    position: relative;
+    background: transparent;
+    box-shadow: none;
+}
+
+/* Divisores verticales finos entre las unidades */
+.time-card:not(:last-child)::after {
+    content: '';
+    position: absolute;
+    right: 0;
+    top: 15%;
+    height: 70%;
+    width: 1px;
+    background-color: var(--divider-color);
+}
+
+/* Número del contador */
+.time-card span {
+    font-family: 'Arial', sans-serif;
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: var(--text-dark);
+    line-height: 1;
+}
+
+/* Texto debajo del número (días, hs, seg) */
+.time-card p {
+    font-family: 'Georgia', serif;
+    font-size: 0.9rem;
+    color: var(--gold-accent);
+    margin-top: 4px;
+    text-transform: lowercase;
+}
+
+/* Icono del corazón inferior */
+.timer-heart {
+    width: 22px;
+    height: 20px;
+    margin-top: 15px;
+    fill: var(--green-olive);
+}
+
+.expired-message {
+    font-family: 'Georgia', serif;
+    font-size: 1.2rem;
+    color: var(--gold-accent);
+}
+
+/* Ajuste responsive para pantallas pequeñas */
+@media (max-width: 400px) {
+    .countdown-container {
+        width: 310px;
+        height: 310px;
+    }
+    .timer-circle {
+        width: 215px;
+        height: 215px;
+    }
+    .time-card {
+        padding: 0 8px;
+    }
+    .time-card span {
+        font-size: 1.4rem;
+    }
+    .time-card p {
+        font-size: 0.8rem;
+    }
+}

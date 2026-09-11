@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ubicación y Fechas</title>
+
+    <!-- Fuentes desde Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Montserrat:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,600;0,700;1,400&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="Dia_Boda.css">
+</head>
+<body>
+
+    <section class="events-section">
+        <div class="events-container">
+            
+            <!-- TARJETA 1: CEREMONIA -->
+            <div class="event-card">
+                <!-- Contenedor del Círculo con Marco de Imagen Local -->
+                <div class="circle-wrapper">
+                    <!-- IMAGEN LOCAL DEL MARCO (Reemplaza 'marco1.png' por tu archivo) -->
+                    <img src="../fotos_boda/marco2.png" alt="Marco Ceremonia" class="circle-frame">
+
+                    <!-- Círculo blanco con Animación -->
+                    <div class="icon-circle">
+                        <div class="ceremony-anim-container">
+                            <!-- Corazón en líneas animado -->
+                            <svg class="heart-line-svg" viewBox="0 0 100 80">
+                                <path class="heart-path" d="M 50,65 C 20,40 10,25 25,12 C 35,3 45,12 50,20 C 55,12 65,3 75,12 C 90,25 80,40 50,65 Z" fill="none" stroke="#6B8378" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+
+                            <!-- Anillos chocando -->
+                            <div class="rings-wrapper">
+                                <div class="ring ring-left"></div>
+                                <div class="ring ring-right"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Banner Verde Estilo Listón -->
+                <div class="ribbon-banner">
+                    <h2>Ceremonia</h2>
+                </div>
+
+                <!-- Información Libre sin tarjeta -->
+                <div class="info-content">
+                    <div class="event-block">
+                        <h3>Día</h3>
+                        <p class="event-detail">Sábado 5 de Diciembre - 17hs</p>
+                    </div>
+
+                    <div class="event-block">
+                        <h3>Lugar</h3>
+                        <p class="event-detail font-medium">Parroquia Nuestra Señora de Lujan</p>
+                        <p class="event-subdetail">Av. Pergamino 203 - Bogotá</p>
+                        <a href="#" target="_blank" class="location-btn">¿CÓMO LLEGAR?</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- TARJETA 2: FIESTA -->
+            <div class="event-card">
+                <!-- Contenedor del Círculo con Marco de Imagen Local -->
+                <div class="circle-wrapper">
+                    <!-- IMAGEN LOCAL DEL MARCO (Reemplaza 'marco2.png' por tu archivo) -->
+                    <img src="../fotos_boda/marco2.png" alt="Marco Fiesta" class="circle-frame">
+
+                    <!-- Círculo blanco con Animación -->
+                    <div class="icon-circle">
+                        <div class="popper-container">
+                            <svg class="party-popper-svg" viewBox="0 0 100 100" fill="none" stroke="#A89269" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+                                <g class="popper-body">
+                                    <path d="M 32,72 L 40,42 L 62,60 Z" />
+                                    <path d="M 37,53 C 42,56 48,58 54,53" />
+                                    <path d="M 34,63 C 39,66 44,67 48,63" />
+                                </g>
+
+                                <g class="confetti-burst">
+                                    <line class="spark s1" x1="52" y1="42" x2="60" y2="28" />
+                                    <line class="spark s2" x1="58" y1="48" x2="74" y2="40" />
+                                    <line class="spark s3" x1="44" y1="36" x2="45" y2="20" />
+                                    <circle class="dot d1" cx="38" cy="24" r="3" fill="#A89269" />
+                                    <circle class="dot d2" cx="72" cy="54" r="3" fill="#A89269" />
+                                    <g class="star-spark">
+                                        <line x1="68" y1="28" x2="68" y2="18" />
+                                        <line x1="63" y1="23" x2="73" y2="23" />
+                                        <line x1="64" y1="19" x2="72" y2="27" />
+                                        <line x1="64" y1="27" x2="72" y2="19" />
+                                    </g>
+                                </g>
+                            </svg>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Banner Verde Estilo Listón -->
+                <div class="ribbon-banner">
+                    <h2>Fiesta</h2>
+                </div>
+
+                <!-- Información Libre sin tarjeta -->
+                <div class="info-content">
+                    <div class="event-block">
+                        <h3>Día</h3>
+                        <p class="event-detail">Sábado 5 de Diciembre - 20hs</p>
+                    </div>
+
+                    <div class="event-block">
+                        <h3>Lugar</h3>
+                        <p class="event-detail font-medium">Salón de Fiestas Avril</p>
+                        <p class="event-subdetail">Av. Los Reartes 12 - Bogotá</p>
+                        <a href="#" target="_blank" class="location-btn">¿CÓMO LLEGAR?</a>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+</body>
+</html>

@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Boda dahiana/hemer</title>
+    <link rel="stylesheet" href="temporizador.css">
+</head>
+<body>
+
+    <section class="section countdown-section">
+        
+        <!-- Contenedor del marco floral y círculo central -->
+        <div class="countdown-container">
+            <div class="timer-circle">
+                <h2 class="timer-title">Falta</h2>
+
+                <!-- Tarjetas del temporizador -->
+                <div class="timer" id="timer">
+                    <div class="time-card">
+                        <span id="days">00</span>
+                        <p>días</p>
+                    </div>
+                    <div class="time-card">
+                        <span id="hours">00</span>
+                        <p>hs</p>
+                    </div>
+                    <div class="time-card">
+                        <span id="seconds">00</span>
+                        <p>seg</p>
+                    </div>
+                </div>
+
+                <!-- Corazón inferior verde oliva -->
+                <svg class="timer-heart" viewBox="0 0 24 24">
+                    <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/>
+                </svg>
+
+                <p id="expired-message" class="expired-message" style="display: none;">
+                    ¡Llegó el gran día! 🎉
+                </p>
+            </div>
+        </div>
+
+    </section>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const FECHA_BODA = "2026-12-05T16:30:00";
+            const targetDate = new Date(FECHA_BODA).getTime();
+
+            const daysEl = document.getElementById("days");
+            const hoursEl = document.getElementById("hours");
+            const secondsEl = document.getElementById("seconds");
+            const timerContainer = document.getElementById("timer");
+            const expiredMessage = document.getElementById("expired-message");
+
+            function updateCountdown() {
+                const now = new Date().getTime();
+                const difference = targetDate - now;
+
+                if (difference <= 0) {
+                    clearInterval(timerInterval);
+                    if (timerContainer) timerContainer.style.display = "none";
+                    if (expiredMessage) expiredMessage.style.display = "block";
+                    return;
+                }
+
+                // Cálculo de días, horas y segundos
+                const days = Math.floor(difference / (1000 * 60 * 60 * 24));
+                const hours = Math.floor((difference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                const seconds = Math.floor((difference % (1000 * 60)) / 1000);
+
+                // Asignación de valores en pantalla
+                daysEl.innerText = String(days).padStart(2, '0');
+                hoursEl.innerText = String(hours).padStart(2, '0');
+                secondsEl.innerText = String(seconds).padStart(2, '0');
+            }
+
+            updateCountdown();
+            const timerInterval = setInterval(updateCountdown, 1000);
+        });
+    </script>
+</body>
+</html>

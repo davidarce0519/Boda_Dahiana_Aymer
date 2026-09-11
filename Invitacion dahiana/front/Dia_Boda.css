@@ -1,0 +1,332 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-color: #F8F6F2;
+    font-family: 'Montserrat', sans-serif;
+}
+
+/* Sección contenedora */
+.events-section {
+    padding: 60px 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.events-container {
+    display: flex;
+    gap: 70px;
+    max-width: 900px;
+    width: 100%;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+/* Tarjeta individual */
+.event-card {
+    flex: 1;
+    min-width: 300px;
+    max-width: 370px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+/* --- CONTENEDOR DEL CÍRCULO Y EL MARCO --- */
+.circle-wrapper {
+    position: relative;
+    width: 180px;
+    height: 180px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 25px;
+}
+
+/* Imagen local del marco detrás */
+.circle-frame {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    z-index: 0;
+    pointer-events: none;
+}
+
+/* Círculo blanco superior */
+.icon-circle {
+    width: 130px;
+    height: 130px;
+    background: #FFFFFF;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.05);
+    position: relative;
+    z-index: 1;
+}
+
+/* --- ANIMACIÓN 1: ANILLOS + CORAZÓN EN LÍNEAS --- */
+.ceremony-anim-container {
+    width: 90px;
+    height: 90px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-end;
+    position: relative;
+    padding-bottom: 8px;
+}
+
+.heart-line-svg {
+    width: 48px;
+    height: 40px;
+    position: absolute;
+    top: 4px;
+}
+
+.heart-path {
+    stroke-dasharray: 240;
+    stroke-dashoffset: 240;
+    animation: drawHeartLoop 3s ease-in-out infinite;
+}
+
+@keyframes drawHeartLoop {
+    0% {
+        stroke-dashoffset: 240;
+        opacity: 0;
+        transform: scale(0.9);
+    }
+    15% {
+        opacity: 1;
+    }
+    50%, 75% {
+        stroke-dashoffset: 0;
+        opacity: 1;
+        transform: scale(1.05);
+    }
+    90%, 100% {
+        stroke-dashoffset: 0;
+        opacity: 0;
+        transform: scale(1);
+    }
+}
+
+.rings-wrapper {
+    position: relative;
+    width: 70px;
+    height: 32px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.ring {
+    width: 28px;
+    height: 28px;
+    border: 3px solid #6B8378;
+    border-radius: 50%;
+    position: absolute;
+    bottom: 0;
+}
+
+.ring-left {
+    animation: ringClinkLeft 3s ease-in-out infinite;
+}
+
+.ring-right {
+    animation: ringClinkRight 3s ease-in-out infinite;
+}
+
+@keyframes ringClinkLeft {
+    0%, 100% { transform: translateX(-14px); }
+    35%, 65% { transform: translateX(-3px); }
+}
+
+@keyframes ringClinkRight {
+    0%, 100% { transform: translateX(14px); }
+    35%, 65% { transform: translateX(3px); }
+}
+
+/* --- ANIMACIÓN 2: CONO DE FIESTA --- */
+.popper-container {
+    width: 85px;
+    height: 85px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.party-popper-svg {
+    width: 100%;
+    height: 100%;
+}
+
+.popper-body {
+    transform-origin: 40px 60px;
+    animation: popperTilt 2s ease-in-out infinite;
+}
+
+@keyframes popperTilt {
+    0%, 100% { transform: rotate(0deg); }
+    30% { transform: rotate(-8deg); }
+    50% { transform: rotate(4deg); }
+}
+
+.confetti-burst {
+    transform-origin: 40px 50px;
+    animation: burstPop 2s ease-out infinite;
+}
+
+@keyframes burstPop {
+    0% {
+        opacity: 0;
+        transform: scale(0.3) translateY(10px);
+    }
+    35% {
+        opacity: 1;
+        transform: scale(1.1) translateY(-2px);
+    }
+    70%, 100% {
+        opacity: 0;
+        transform: scale(1.2) translateY(-6px);
+    }
+}
+
+/* --- LISTÓN VERDE --- */
+.ribbon-banner {
+    position: relative;
+    background-color: #799285;
+    color: #FFFFFF;
+    width: 78%;
+    padding: 8px 0;
+    margin-bottom: 35px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.08);
+}
+
+.ribbon-banner h2 {
+    font-family: 'Great Vibes', cursive;
+    font-size: 3.2rem;
+    font-weight: 400;
+    line-height: 1.1;
+    z-index: 2;
+}
+
+.ribbon-banner::before,
+.ribbon-banner::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    height: 100%;
+    width: 25px;
+    background-color: #799285;
+    z-index: 1;
+}
+
+.ribbon-banner::before {
+    left: -18px;
+    clip-path: polygon(100% 0, 0 0, 10px 50%, 0 100%, 100% 100%);
+}
+
+.ribbon-banner::after {
+    right: -18px;
+    clip-path: polygon(0 0, 100% 0, calc(100% - 10px) 50%, 100% 100%, 0 100%);
+}
+
+.ribbon-banner h2::before,
+.ribbon-banner h2::after {
+    content: '';
+    position: absolute;
+    top: -5px;
+    bottom: -5px;
+    width: 100%;
+    border-top: 5px solid #637B6E;
+    border-bottom: 5px solid #637B6E;
+    left: 0;
+    pointer-events: none;
+    z-index: 0;
+}
+
+/* --- INFORMACIÓN LIBRE --- */
+.info-content {
+    width: 100%;
+    padding: 0 10px;
+}
+
+.event-block {
+    margin-bottom: 28px;
+}
+
+.event-block h3 {
+    color: #4D6459;
+    font-family: 'Playfair Display', serif;
+    font-size: 2rem;
+    font-weight: 700;
+    margin-bottom: 6px;
+    letter-spacing: 0.5px;
+}
+
+.event-detail {
+    color: #555555;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1.05rem;
+    font-weight: 400;
+    margin-bottom: 4px;
+}
+
+.event-detail.font-medium {
+    font-weight: 600;
+}
+
+.event-subdetail {
+    color: #777777;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 0.95rem;
+    margin-bottom: 16px;
+}
+
+/* Botón "¿CÓMO LLEGAR?" estilo cápsula */
+.location-btn {
+    display: inline-block;
+    background-color: #FFFFFF;
+    color: #4D6459;
+    border: 1.5px solid #D1C9BE;
+    padding: 11px 32px;
+    border-radius: 30px;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 0.85rem;
+    font-weight: 700;
+    text-decoration: none;
+    letter-spacing: 1px;
+    box-shadow: 0 3px 8px rgba(0, 0, 0, 0.03);
+    transition: all 0.3s ease;
+}
+
+.location-btn:hover {
+    border-color: #4D6459;
+    background-color: #4D6459;
+    color: #FFFFFF;
+    box-shadow: 0 6px 16px rgba(77, 100, 89, 0.25);
+}
+
+/* Responsive */
+@media (max-width: 700px) {
+    .events-container {
+        gap: 50px;
+    }
+    .ribbon-banner h2 {
+        font-size: 2.7rem;
+    }
+    .event-block h3 {
+        font-size: 1.7rem;
+    }
+}

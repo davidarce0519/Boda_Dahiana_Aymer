@@ -1,0 +1,115 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+/* Sección principal de la galería */
+.gallery-section {
+    padding: 50px 0;
+    text-align: center;
+    overflow: hidden;
+    background-color: #F8F6F2;
+}
+
+/* Título caligráfico exacto al estilo de la imagen */
+.gallery-title {
+    font-family: 'Great Vibes', cursive;
+    font-size: 3.5rem;
+    font-weight: 400;
+    color: #4A6B62;
+    margin-bottom: 10px;
+    text-align: center;
+}
+
+/* Icono de cámara superior */
+.camera-icon {
+    width: 48px;
+    height: 48px;
+    margin: 0 auto 25px auto;
+}
+
+/* Visor principal del carrusel */
+.carousel-container {
+    width: 100%;
+    overflow: hidden;
+    padding: 15px 0 25px 0;
+    cursor: grab;
+}
+
+.carousel-container:active {
+    cursor: grabbing;
+}
+
+/* Pista con desplazamiento continuo */
+.carousel-track {
+    display: flex;
+    gap: 20px;
+    width: max-content;
+    animation: scroll 25s linear infinite;
+    will-change: transform;
+}
+
+/* Tarjeta estilo marco blanco / Polaroid */
+.photo-card {
+    background: #FFFFFF;
+    padding: 12px 12px 30px 12px;
+    border-radius: 4px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.06);
+    flex-shrink: 0;
+    width: 340px;
+    user-select: none;
+}
+
+.photo-card img {
+    width: 100%;
+    height: 300px;
+    object-fit: cover;
+    border-radius: 2px;
+    display: block;
+    pointer-events: none;
+}
+
+/* Puntos indicadores inferiores */
+.carousel-dots {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 15px;
+}
+
+.dot {
+    width: 8px;
+    height: 8px;
+    background-color: #C2BBB0;
+    border-radius: 50%;
+    transition: background-color 0.3s ease;
+}
+
+.dot.active {
+    background-color: #4A6B62;
+}
+
+/* Animación de desplazamiento infinito */
+@keyframes scroll {
+    0% {
+        transform: translateX(0);
+    }
+    100% {
+        transform: translateX(calc(-50% - 10px));
+    }
+}
+
+/* Adaptación responsive para pantallas móviles */
+@media (max-width: 600px) {
+    .gallery-title {
+        font-size: 2.5rem;
+    }
+    .photo-card {
+        width: 270px;
+        padding: 10px 10px 24px 10px;
+    }
+    .photo-card img {
+        height: 180px;
+    }
+}

@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tarjeta Invitados</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,300;0,400;0,600;0,700;1,300&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="Principal.css">
+</head>
+<body>
+
+    <main class="card-container">
+        <!-- Círculo con la cantidad de pases -->
+        <div id="badge-count" class="badge-count">0</div>
+
+        <!-- Título principal -->
+        <h1 class="card-title">INVITADOS</h1>
+
+        <!-- Lista de nombres de invitados -->
+        <div id="guests-list" class="guests-list"></div>
+
+        <!-- Mensaje inferior -->
+        <p class="card-footer-text">
+            Nos encanta compartir este momento con vos. ¡Te esperamos!
+        </p>
+    </main>
+
+    <!-- Archivo JS con los datos de los invitados -->
+    <script src="invitados.js"></script>
+
+    <script>
+        // Obtener el ID del invitado desde la URL (ej. tarjeta_invitados.html?id=1)
+        const urlParams = new URLSearchParams(window.location.search);
+        const guestId = parseInt(urlParams.get('id'));
+
+        // Buscar al invitado en el array importado
+        const invitado = invitadosData.find(g => g.id === guestId);
+
+        if (invitado) {
+            // Actualizar el número de pases
+            document.getElementById('badge-count').textContent = invitado.pases;
+
+            // Generar las cápsulas con los nombres
+            const container = document.getElementById('guests-list');
+            container.innerHTML = '';
+            
+            invitado.integrantes.forEach(nombre => {
+                const pill = document.createElement('span');
+                pill.className = 'guest-pill';
+                pill.textContent = nombre;
+                container.appendChild(pill);
+            });
+        } else {
+            // Si entra directamente sin seleccionar un usuario
+            document.getElementById('guests-list').innerHTML = '<span class="guest-pill">Invitación no encontrada</span>';
+        }
+    </script>
+</body>
+</html>

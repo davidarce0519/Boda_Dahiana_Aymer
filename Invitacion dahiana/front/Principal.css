@@ -1,0 +1,78 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: #F8F6F2;
+    font-family: 'Montserrat', sans-serif;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+
+.card-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    max-width: 500px;
+    width: 100%;
+}
+
+/* Círculo verde con el número */
+.badge-count {
+    width: 56px;
+    height: 56px;
+    background-color: #4B635E;
+    color: #FFFFFF;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.8rem;
+    font-weight: 700;
+    margin-bottom: 12px;
+}
+
+/* Título INVITADOS */
+.card-title {
+    color: #4B635E;
+    font-size: 2.2rem;
+    font-weight: 400;
+    letter-spacing: 2px;
+    margin-bottom: 24px;
+}
+
+/* Contenedor de las cápsulas de nombres */
+.guests-list {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    align-items: center;
+    margin-bottom: 35px;
+    width: 100%;
+}
+
+/* Cápsula individual para cada nombre */
+.guest-pill {
+    background-color: #EFECE6;
+    color: #333333;
+    padding: 8px 18px;
+    border-radius: 6px;
+    font-size: 1.1rem;
+    font-weight: 400;
+    display: inline-block;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.03);
+}
+
+/* Mensaje inferior */
+.card-footer-text {
+    color: #888888;
+    font-size: 1.1rem;
+    font-weight: 300;
+    line-height: 1.4;
+}

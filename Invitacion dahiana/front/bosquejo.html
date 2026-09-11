@@ -1,0 +1,626 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Invitación de Boda - Dahiana & Aymer</title>
+
+    <!-- Fuentes Tipográficas Consolidadas -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Alex+Brush&family=Great+Vibes&family=Montserrat:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300&family=Playfair+Display:ital,wght@0,600;0,700;1,400&display=swap" rel="stylesheet">
+
+    <!-- Hojas de Estilos del Proyecto -->
+    <link rel="stylesheet" href="bosquejo.css">
+    <link rel="stylesheet" href="temporizador.css">
+    <link rel="stylesheet" href="Dia_Boda.css">
+    <link rel="stylesheet" href="Carrucel_fotos.css">
+</head>
+<body>
+
+<!-- ==========================================
+     1. PORTADA PRINCIPAL CON ONDA INCORPORADA
+     ========================================== -->
+<section class="hero-cover">
+
+
+    <img src="../fotos_boda/foto principal.jpeg" alt="Portada Dahiana y Hemer" class="hero-single-img">
+
+    <div class="overlay"></div>
+
+    <div class="hero-content">
+        <div class="date-wrapper">
+            <span class="line"></span>
+            <p class="event-date">05.12.2026</p>
+            <span class="line"></span>
+        </div>
+
+        <div class="names-wrapper">
+            <h1 class="bride-groom-name">Aymer</h1>
+            <span class="ampersand-badge">&</span>
+            <h1 class="bride-groom-name">Dahiana</h1>
+        </div>
+
+        <div class="divider-line"></div>
+
+        <div class="quote-wrapper">
+            <span class="quote-mark">“</span>
+            <p class="quote-text">
+                Así que ya no son dos,<br>
+                 sino uno solo. Por tanto, lo que Dios ha unido, que no lo separe el hombre
+            </p>
+            <span class="quote-mark">”</span>
+        </div>
+
+        <div class="scroll-down-arrow">
+            <svg viewBox="0 0 24 24" width="28" height="28" stroke="currentColor" stroke-width="2" fill="none">
+                <polyline points="6 9 12 15 18 9"></polyline>
+            </svg>
+        </div>
+    </div>
+
+    <!-- CORTE ONDULADO FIEL A LA REFERENCIA -->
+    <div class="wave-divider">
+        <svg viewBox="0 0 1440 320" preserveAspectRatio="none" class="wave-svg">
+            <!-- Capa sutil verde salvia detrás -->
+            <path fill="#8FA89B" fill-opacity="0.7" d="M0,160 C360,280 720,60 1440,200 L1440,320 L0,320 Z"></path>
+            <!-- Capa principal crema al frente que realiza el corte -->
+            <path fill="#F8F6F2" d="M0,224 C320,120 680,290 1440,160 L1440,320 L0,320 Z"></path>
+        </svg>
+    </div>
+</section>
+
+<!-- ==========================================
+     2. TEMPORIZADOR MONTADO SOBRE EL CORTE
+     ========================================== -->
+<div class="countdown-overlap-wrapper">
+    <section class="section countdown-section">
+        <div class="countdown-container">
+            <div class="timer-circle">
+                <h2 class="timer-title">Falta</h2>
+
+                <div class="timer" id="timer">
+                    <div class="time-card">
+                        <span id="days">00</span>
+                        <p>días</p>
+                    </div>
+                    <div class="time-card">
+                        <span id="hours">00</span>
+                        <p>hs</p>
+                    </div>
+                    <div class="time-card">
+                        <span id="seconds">00</span>
+                        <p>seg</p>
+                    </div>
+                </div>
+
+                <svg class="timer-heart" viewBox="0 0 24 24">
+                    <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/>
+                </svg>
+
+                <p id="expired-message" class="expired-message" style="display: none;">
+                    ¡Llegó el gran día! 🎉
+                </p>
+            </div>
+        </div>
+    </section>
+</div>
+
+
+    <!-- ==========================================
+         3. UBICACIÓN Y FECHAS (DÍA DE LA BODA)
+         ========================================== -->
+    <section class="events-section">
+        <div class="events-container">
+            
+            <!-- TARJETA 1: CEREMONIA -->
+            <div class="event-card">
+                <div class="circle-wrapper">
+                    <img src="../fotos_boda/marco2.png" alt="Marco Ceremonia" class="circle-frame">
+                    <div class="icon-circle">
+                        <div class="ceremony-anim-container">
+                            <svg class="heart-line-svg" viewBox="0 0 100 80">
+                                <path class="heart-path" d="M 50,65 C 20,40 10,25 25,12 C 35,3 45,12 50,20 C 55,12 65,3 75,12 C 90,25 80,40 50,65 Z" fill="none" stroke="#6B8378" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+        
+                            <div class="rings-wrapper">
+                                <div class="ring ring-left"></div>
+                                <div class="ring ring-right"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="ribbon-banner">
+                    <h2>Ceremonia</h2>
+                </div>
+
+                <div class="info-content">
+                    <div class="event-block">
+                        <h3>Día</h3>
+                        <p class="event-detail">Sábado 5 de Diciembre - 5:00 PM</p>
+                    </div>
+
+                    <div class="event-block">
+                        <h3>Lugar</h3>
+                        <p class="event-detail font-medium"> El Encanto Centro de Eventos</p>
+                        <p class="event-subdetail">Autop. Cali - Jamundí #12, Cali, Valle del Cauca</p>
+                        <a href="https://www.google.com/maps/place/El+Encanto+Centro+De+Eventos/@3.2912204,-76.5205644,15.98z/data=!4m6!3m5!1s0x8e309f000b661b8d:0xb6f10bed2f12b15e!8m2!3d3.2949419!4d-76.5226216!16s%2Fg%2F11yqlfv62g?entry=ttu&g_ep=EgoyMDI2MDkwMi4wIKXMDSoASAFQAw%3D%3D" target="_blank" class="location-btn">¿CÓMO LLEGAR?</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- TARJETA 2: FIESTA -->
+            <div class="event-card">
+                <div class="circle-wrapper">
+                    <img src="../fotos_boda/marco2.png" alt="Marco Fiesta" class="circle-frame">
+                    <div class="icon-circle">
+                        <div class="popper-container">
+                            <svg class="party-popper-svg" viewBox="0 0 100 100" fill="none" stroke="#A89269" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+                                <g class="popper-body">
+                                    <path d="M 32,72 L 40,42 L 62,60 Z" />
+                                    <path d="M 37,53 C 42,56 48,58 54,53" />
+                                    <path d="M 34,63 C 39,66 44,67 48,63" />
+                                </g>
+                                <g class="confetti-burst">
+                                    <line class="spark s1" x1="52" y1="42" x2="60" y2="28" />
+                                    <line class="spark s2" x1="58" y1="48" x2="74" y2="40" />
+                                    <line class="spark s3" x1="44" y1="36" x2="45" y2="20" />
+                                    <circle class="dot d1" cx="38" cy="24" r="3" fill="#A89269" />
+                                    <circle class="dot d2" cx="72" cy="54" r="3" fill="#A89269" />
+                                    <g class="star-spark">
+                                        <line x1="68" y1="28" x2="68" y2="18" />
+                                        <line x1="63" y1="23" x2="73" y2="23" />
+                                        <line x1="64" y1="19" x2="72" y2="27" />
+                                        <line x1="64" y1="27" x2="72" y2="19" />
+                                    </g>
+                                </g>
+                            </svg>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="ribbon-banner">
+                    <h2>Recepcion</h2>
+                </div>
+
+                <div class="info-content">
+                    <div class="event-block">
+                        <h3>Día</h3>
+                        <p class="event-detail">Sábado 5 de Diciembre - 6:00 PM</p>
+                    </div>
+
+                    <div class="event-block">
+                        <h3>Lugar</h3>
+                        <p class="event-detail font-medium">El Encanto Centro de Eventos</p>
+                        <p class="event-subdetail">Autop. Cali - Jamundí #12, Cali, Valle del Cauca</p>
+                        <a href="https://www.google.com/maps/place/El+Encanto+Centro+De+Eventos/@3.2949668,-76.5228049,16z/data=!4m15!1m8!3m7!1s0x8e309f000b661b8d:0xb6f10bed2f12b15e!2sEl+Encanto+Centro+De+Eventos!8m2!3d3.2949419!4d-76.5226216!10e5!16s%2Fg%2F11yqlfv62g!3m5!1s0x8e309f000b661b8d:0xb6f10bed2f12b15e!8m2!3d3.2949419!4d-76.5226216!16s%2Fg%2F11yqlfv62g?entry=ttu&g_ep=EgoyMDI2MDkwMi4wIKXMDSoASAFQAw%3D%3D" target="_blank" class="location-btn">¿CÓMO LLEGAR?</a>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- ==========================================
+         4. CARRUSEL DE FOTOS
+         ========================================== -->
+    <section class="gallery-section">
+        <h1 class="gallery-title">Retratos de nuestro amor</h1>
+            <p class="card-text">Retratos de un amor que sigue escribiendo nuestra historia</p>
+        <div class="camera-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="#4A6B62" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"></path>
+                <circle cx="12" cy="13" r="4"></circle>
+            </svg>
+        </div>
+
+        <div class="carousel-container" id="carouselContainer">
+            <div class="carousel-track" id="carouselTrack">
+                <div class="photo-card"><img src="../fotos_boda/WhatsApp Image 2026-09-07 at 1.26.40 PM.jpeg"Boda 1"></div>
+                <div class="photo-card"><img src="../fotos_boda/IMG_0559.JPG.jpeg"Boda 3"></div>
+                <div class="photo-card"><img src="../fotos_boda/IMG_0561.JPG.jpeg"Boda 4"></div>
+
+                <!-- Duplicado exacto para el efecto infinito -->
+                <div class="photo-card"><img src="../fotos_boda/IMG_0624.JPG.jpeg"Boda 1"></div>
+                <div class="photo-card"><img src="../fotos_boda/WhatsApp Image 2026-09-07 at 1.26.40 PM.jpeg"Boda 2"></div>
+                <div class="photo-card"><img src="../fotos_boda/IMG_0559.JPG.jpeg"Boda 4"></div>
+            </div>
+        </div>
+
+        <div class="carousel-dots">
+            <span class="dot active"></span>
+            <span class="dot"></span>
+            <span class="dot"></span>
+            <span class="dot"></span>
+        </div>
+    </section>
+
+    <!-- DIVISOR ONDULADO DORADO (Insertar entre secciones) -->
+<div class="ribbon-divider ribbon-divider-straight" aria-hidden="true">
+    <svg viewBox="0 0 1440 180" preserveAspectRatio="none">
+        <path d="M0,90 C320,30 640,150 960,70 C1200,10 1360,110 1440,90" 
+              stroke="#D3B168" stroke-width="2" fill="none" opacity="0.85"/>
+        <path d="M0,110 C280,50 600,70 920,130 C1180,170 1380,30 1440,110" 
+              stroke="#E2C482" stroke-width="1.5" fill="none" opacity="0.75"/>
+        <path d="M0,130 C360,170 700,-10 1000,60 C1220,110 1350,90 1440,110" 
+              stroke="#C5A053" stroke-width="1.8" fill="none" opacity="0.8"/>
+    </svg>
+</div>
+
+
+    <!-- ==========================================
+         SCRIPTS UNIFICADOS DEL PROYECTO
+         ========================================== -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            
+            // Lógica 1: Temporizador de Cuenta Regresiva
+            const FECHA_BODA = "2026-12-05T16:30:00";
+            const targetDate = new Date(FECHA_BODA).getTime();
+
+            const daysEl = document.getElementById("days");
+            const hoursEl = document.getElementById("hours");
+            const secondsEl = document.getElementById("seconds");
+            const timerContainer = document.getElementById("timer");
+            const expiredMessage = document.getElementById("expired-message");
+
+            function updateCountdown() {
+                const now = new Date().getTime();
+                const difference = targetDate - now;
+
+                if (difference <= 0) {
+                    clearInterval(timerInterval);
+                    if (timerContainer) timerContainer.style.display = "none";
+                    if (expiredMessage) expiredMessage.style.display = "block";
+                    return;
+                }
+
+                const days = Math.floor(difference / (1000 * 60 * 60 * 24));
+                const hours = Math.floor((difference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                const seconds = Math.floor((difference % (1000 * 60)) / 1000);
+
+                if (daysEl) daysEl.innerText = String(days).padStart(2, '0');
+                if (hoursEl) hoursEl.innerText = String(hours).padStart(2, '0');
+                if (secondsEl) secondsEl.innerText = String(seconds).padStart(2, '0');
+            }
+
+            updateCountdown();
+            const timerInterval = setInterval(updateCountdown, 1000);
+
+            // Lógica 2: Carrusel de Fotos Interactivo
+            const container = document.getElementById('carouselContainer');
+            const track = document.getElementById('carouselTrack');
+            const dots = document.querySelectorAll('.dot');
+
+            if (container && track) {
+                container.addEventListener('mouseenter', () => {
+                    track.style.animationPlayState = 'paused';
+                });
+
+                container.addEventListener('mouseleave', () => {
+                    track.style.animationPlayState = 'running';
+                });
+            }
+
+            if (dots.length > 0) {
+                let activeDotIndex = 0;
+                setInterval(() => {
+                    dots[activeDotIndex].classList.remove('active');
+                    activeDotIndex = (activeDotIndex + 1) % dots.length;
+                    dots[activeDotIndex].classList.add('active');
+                }, 3000);
+            }
+        });
+    </script>
+
+    <!-- ==========================================
+     SECCIÓN: DETALLES DE LA FIESTA (DISEÑO PLANO)
+     ========================================== -->
+<section class="fiesta-details-section">
+
+    <div class="fiesta-header">
+        <h2 class="fiesta-title">Recepcion</h2>
+    </div>
+
+    <div class="cards-grid">
+        <!-- TARJETA 1: DRESS CODE -->
+        <div class="fiesta-card">
+            <h3 class="card-title">Dress Code</h3>
+            
+            <!-- Ruta de imagen modificable -->
+            <div class="card-icon-wrapper">
+                <img src="../fotos_boda/novios.png" alt="Dress Code" class="card-custom-icon">
+            </div>
+
+            <p class="card-text">Una orientación para tu vestuario</p>
+
+            <button class="modal-trigger-btn" onclick="openModal('modal-dresscode')">VER MÁS</button>
+        </div>
+
+        <!-- TARJETA 2: TIPS Y NOTAS -->
+        <div class="fiesta-card">
+            <h3 class="card-title">Tips y Notas</h3>
+            
+            <!-- Ruta de imagen modificable -->
+            <div class="card-icon-wrapper">
+                <img src="../fotos_boda/notas.png" alt="Tips y Notas" class="card-custom-icon">
+            </div>
+
+            <p class="card-text">Información adicional para tener en cuenta</p>
+
+            <button class="modal-trigger-btn" onclick="openModal('modal-tips')">+ INFO</button>
+        </div>
+    </div>
+</section>
+
+
+
+<!-- ==========================================
+     VENTANAS EMERGENTES (MODALES CON TEXTO EXACTO)
+     ========================================== -->
+
+<!-- MODAL 1: DRESS CODE (Basado en tu Imagen 1) -->
+<div id="modal-dresscode" class="modal-overlay">
+    <div class="modal-box modal-dresscode-box">
+        <button class="modal-close-btn" onclick="closeModal('modal-dresscode')">&times;</button>
+        
+        <h3 class="modal-subtitle-serif">Código de Vestimenta</h3>
+        
+        <!-- Espacio reservado para tu imagen personalizada -->
+        <div class="modal-image-container">
+            <img src="../fotos_boda/trajeyvestido.png" alt="Ilustración Dress Code" class="modal-custom-img">
+        </div>
+
+        <h2 class="modal-title-cursive">Formal</h2>
+
+        <p class="modal-reservation-text">
+            Se reserva el color <br>
+            <strong>BLANCO</strong> <br>
+            para la novia
+        </p>
+    </div>
+</div>
+
+<!-- MODAL 2: TIPS Y NOTAS (Basado en tu Imagen 2 - Texto Exacto) -->
+<div id="modal-tips" class="modal-overlay">
+    <div class="modal-box modal-tips-box">
+        <button class="modal-close-btn modal-close-dark" onclick="closeModal('modal-tips')">&times;</button>
+        
+        <!-- Icono de Portapapeles -->
+        <div class="modal-header-icon">
+            <svg viewBox="0 0 24 24" width="40" height="40" fill="none" stroke="#D3B168" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path>
+                <rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect>
+                <path d="M9 14l2 2 4-4"></path>
+            </svg>
+        </div>
+
+        <h3 class="modal-tips-title">Tips y Notas</h3>
+
+        <div class="modal-tips-body">
+            <p class="tip-item">
+                <strong>• Puntualidad:</strong> les agradecemos ser puntuales.
+            </p>
+
+            <p class="tip-item">
+                <strong>• Confirmación de asistencia:</strong> Para nosotros es muy importante contar con tu presencia. Te agradecemos confirmar tu asistencia antes del 1 de noviembre del 2026, ya que después de esa fecha se cerrará la lista de ingreso y no será posible realizar cambios.
+            </p>
+
+            <p class="tip-item">
+                <strong>• Sin niños:</strong> Con mucho cariño, esta será una celebración sólo para adultos, gracias por comprendernos.
+            </p>
+
+            <div class="contact-block">
+                <p class="contact-header"><strong>• Para información adicional, escríbenos a nuestros números de contacto:</strong></p>
+                <p class="contact-numbers">
+                     <a href="tel:+573158637587">(+57)  321 8644645</a>
+                </p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- SCRIPT DE CONTROL -->
+<script>
+    function openModal(modalId) {
+        const modal = document.getElementById(modalId);
+        if (modal) modal.classList.add('active');
+    }
+
+    function closeModal(modalId) {
+        const modal = document.getElementById(modalId);
+        if (modal) modal.classList.remove('active');
+    }
+
+    window.addEventListener('click', function(event) {
+        if (event.target.classList.contains('modal-overlay')) {
+            event.target.classList.remove('active');
+        }
+    });
+</script>
+<!-- DIVISOR ONDULADO DORADO (Insertar entre secciones) -->
+<div class="ribbon-divider ribbon-divider-straight" aria-hidden="true">
+    <svg viewBox="0 0 1440 180" preserveAspectRatio="none">
+        <path d="M0,90 C320,30 640,150 960,70 C1200,10 1360,110 1440,90" 
+              stroke="#D3B168" stroke-width="2" fill="none" opacity="0.85"/>
+        <path d="M0,110 C280,50 600,70 920,130 C1180,170 1380,30 1440,110" 
+              stroke="#E2C482" stroke-width="1.5" fill="none" opacity="0.75"/>
+        <path d="M0,130 C360,170 700,-10 1000,60 C1220,110 1350,90 1440,110" 
+              stroke="#C5A053" stroke-width="1.8" fill="none" opacity="0.8"/>
+    </svg>
+</div>
+<!-- ==========================================
+     SECCIÓN: CONFIRMACIÓN DE ASISTENCIA (CENTRADA)
+     ========================================== -->
+<section class="rsvp-section">
+
+    <!-- Título fuera de la card -->
+    <div class="rsvp-header">
+        <h2 class="rsvp-title">Confirmar Asistencia</h2>
+        <p class="rsvp-subtitle">Tu presencia es muy importante para nosotros. Por favor confirma tu asistencia.</p>
+    </div>
+
+    <!-- Contenedor centrado para la tarjeta -->
+    <div class="rsvp-card-container">
+        <!-- Tarjeta individual con la misma clase .fiesta-card -->
+        <div class="fiesta-card rsvp-card rsvp-observer">
+            <h3 class="card-title">Asistencia</h3>
+            
+            <!-- Animación CSS: Carta/Sobre abriéndose al scroll -->
+            <div class="card-icon-wrapper">
+                <div class="envelope-wrapper">
+                    <div class="envelope">
+                        <div class="envelope-flap"></div>
+                        <div class="envelope-pocket"></div>
+                        <div class="envelope-letter">
+                            <span class="letter-text">RSVP</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <p class="card-text">¡Nos encantaría contar contigo! Confirma tu presencia aquí.</p>
+
+            <!-- Botón de redirección editable -->
+            <a href="https://forms.cloud.microsoft/pages/responsepage.aspx?id=DQSIkWdsW0yxEjajBLZtrQAAAAAAAAAAAAZAAJwFTbpUNDNHSVFHMlNKOUhXWFhCSTBYRjc1VVdPUy4u&origin=lprLink&route=shorturl" target="_blank" class="modal-trigger-btn rsvp-btn">
+                CONFIRMAR
+            </a>
+        </div>
+    </div>
+</section>
+
+<!-- SCRIPT INTERSECTION OBSERVER -->
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        const observerOptions = {
+            root: null,
+            threshold: 0.4 // Se activa al visibilizar el 40% de la tarjeta
+        };
+
+        const rsvpObserver = new IntersectionObserver((entries, observer) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add("animate");
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, observerOptions);
+
+        const rsvpCard = document.querySelector(".rsvp-observer");
+        if (rsvpCard) {
+            rsvpObserver.observe(rsvpCard);
+        }
+    });
+</script>
+
+<!-- DIVISOR ONDULADO DORADO (Insertar entre secciones) -->
+<div class="ribbon-divider ribbon-divider-straight" aria-hidden="true">
+    <svg viewBox="0 0 1440 180" preserveAspectRatio="none">
+        <path d="M0,90 C320,30 640,150 960,70 C1200,10 1360,110 1440,90" 
+              stroke="#D3B168" stroke-width="2" fill="none" opacity="0.85"/>
+        <path d="M0,110 C280,50 600,70 920,130 C1180,170 1380,30 1440,110" 
+              stroke="#E2C482" stroke-width="1.5" fill="none" opacity="0.75"/>
+        <path d="M0,130 C360,170 700,-10 1000,60 C1220,110 1350,90 1440,110" 
+              stroke="#C5A053" stroke-width="1.8" fill="none" opacity="0.8"/>
+    </svg>
+</div>
+
+<!-- ==========================================
+     SECCIÓN: LLUVIA DE SOBRES CON ANIMACIÓN COMPLETA
+     ========================================== -->
+<section class="lluvia-sobres-section">
+    <h2 class="sobres-title">Lluvia de Sobres</h2>
+    <p class="sobres-subtitle">Si deseas regalarnos algo más que tu hermosa presencia...</p>
+
+    <div class="sobres-icon-wrapper" aria-hidden="true">
+        <svg viewBox="0 0 100 80" class="envelope-draw-svg">
+            <!-- Fondo de la carta/ interior -->
+            <path d="M 12,25 L 88,25 L 88,68 L 12,68 Z" class="envelope-paper" />
+
+            <!-- Silueta del cuerpo del sobre -->
+            <rect x="5" y="20" width="90" height="55" rx="4" class="draw-line body-line" />
+            
+            <!-- Pliegues inferiores internos -->
+            <path d="M 5,75 L 42,45" class="draw-line fold-line-1" />
+            <path d="M 95,75 L 58,45" class="draw-line fold-line-2" />
+
+            <!-- Solapa superior (Animada en grupo para poder rotar) -->
+            <g class="flap-group">
+                <path d="M 5,20 L 50,52 L 95,20" class="draw-line flap-line" />
+            </g>
+        </svg>
+    </div>
+</section>
+</script>
+
+<!-- ELEMENTO DE AUDIO LOCAL -->
+<audio id="wedding-audio" loop preload="auto">
+    <source src="../fotos_boda/Melendi%20-%20Destino%20o%20Casualidad%20ft%20(mp3cut.net).mp3" type="audio/mpeg">
+    <source src="fotos_boda/Melendi%20-%20Destino%20o%20Casualidad%20ft%20(mp3cut.net).mp3" type="audio/mpeg">
+    Tu navegador no soporta la reproducción de audio.
+</audio>
+
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+    const audio = document.getElementById("wedding-audio");
+    const musicBtn = document.getElementById("music-toggle-btn");
+    const musicIcon = document.getElementById("music-icon");
+
+    audio.volume = 0.8;
+
+    // Función para intentar reproducir y actualizar los controles
+    function playAudio() {
+        const playPromise = audio.play();
+        if (playPromise !== undefined) {
+            playPromise.then(() => {
+                if (musicBtn) musicBtn.classList.add("playing");
+                if (musicIcon) musicIcon.textContent = "🔊";
+            }).catch((err) => {
+                console.log("Error al iniciar audio:", err);
+                if (musicBtn) musicBtn.classList.remove("playing");
+                if (musicIcon) musicIcon.textContent = "🔈";
+            });
+        }
+    }
+
+    // Función para pausar
+    function pauseAudio() {
+        audio.pause();
+        if (musicBtn) musicBtn.classList.remove("playing");
+        if (musicIcon) musicIcon.textContent = "🔈";
+    }
+
+    // Verificar si se accedió desde el botón de la portada (con ?autoplay=true)
+    const urlParams = new URLSearchParams(window.location.search);
+    if (urlParams.get('autoplay') === 'true') {
+        playAudio();
+    }
+
+    // Respaldo de seguridad: si el usuario hace clic o scroll en la invitación, reintentar reproducción
+    function forcePlayOnInteraction() {
+        if (audio.paused) {
+            playAudio();
+        }
+        window.removeEventListener("click", forcePlayOnInteraction);
+        window.removeEventListener("touchstart", forcePlayOnInteraction);
+    }
+
+    window.addEventListener("click", forcePlayOnInteraction, { once: true });
+    window.addEventListener("touchstart", forcePlayOnInteraction, { once: true });
+
+    // Alternar con el botón flotante superior derecho
+    if (musicBtn) {
+        musicBtn.addEventListener("click", function (e) {
+            e.stopPropagation();
+            if (audio.paused) {
+                playAudio();
+            } else {
+                pauseAudio();
+            }
+        });
+    }
+});
+</script>
+</body>
+</html>

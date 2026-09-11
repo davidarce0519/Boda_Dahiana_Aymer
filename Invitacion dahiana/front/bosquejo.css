@@ -1,0 +1,991 @@
+/* ==========================================
+   1. RESET & VARIABLES GLOBALES (ESTILO FIXDATE)
+   ========================================== */
+@import url('https://fonts.googleapis.com/css2?family=Alex+Brush&family=Montserrat:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300&display=swap');
+
+:root {
+    --bg-cream: #F8F6F2;
+    --bg-card: #EFECE6;
+    --green-sage: #8FA89B;
+    --green-dark: #4A6B62;
+    --gold-accent: #D3B168;
+    --text-dark: #333333;
+    --text-muted: #666666;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Fuerza el flujo vertical continuo en el sitio */
+body, html {
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    display: block !important;
+    background-color: var(--bg-cream);
+    font-family: 'Montserrat', sans-serif;
+    color: var(--text-dark);
+    overflow-x: hidden;
+    scroll-behavior: smooth;
+}
+
+/* Forzar estructuración vertical por secciones */
+section, 
+.section, 
+.hero-cover, 
+.events-section, 
+.gallery-section {
+    display: flex !important;
+    flex-direction: column !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    box-sizing: border-box;
+    clear: both;
+}
+
+/* ==========================================
+   2. PORTADA PRINCIPAL (HERO)
+   ========================================== */
+.hero-cover {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    background-color: var(--bg-cream);
+}
+
+/* Única Imagen Principal de Portada */
+.hero-single-img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: 35% center;
+    z-index: 0;
+}
+
+/* Capa de Oscurecimiento (40% de opacidad) */
+.overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(30, 38, 44, 0.40);
+    z-index: 1;
+}
+
+.music-btn {
+    position: fixed;
+    top: 25px;
+    right: 25px;
+    width: 44px;
+    height: 44px;
+    background-color: rgba(255, 255, 255, 0.25);
+    border: 1px solid rgba(255, 255, 255, 0.5);
+    border-radius: 50%;
+    color: #FFFFFF;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    backdrop-filter: blur(6px);
+    z-index: 100;
+    transition: transform 0.2s ease;
+}
+
+.music-btn:hover {
+    transform: scale(1.08);
+}
+
+.hero-content {
+    position: relative;
+    z-index: 2;
+    color: #FFFFFF;
+    text-align: center;
+    max-width: 700px;
+    padding: 0 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.date-wrapper {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin-bottom: 15px;
+}
+
+.date-wrapper .line {
+    height: 1px;
+    width: 70px;
+    background-color: rgba(255, 255, 255, 0.6);
+}
+
+.event-date {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1.1rem;
+    letter-spacing: 2.5px;
+    font-weight: 300;
+}
+
+.names-wrapper {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+/* Tipografía Principal 'Alex Brush' */
+.bride-groom-name {
+    font-family: 'Alex Brush', cursive;
+    font-size: 5.5rem;
+    font-weight: 400;
+    line-height: 1;
+    text-shadow: 0 2px 8px rgba(0,0,0,0.3);
+}
+
+.ampersand-badge {
+    background-color: var(--green-sage);
+    color: #FFFFFF;
+    width: 38px;
+    height: 38px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1.1rem;
+}
+
+.divider-line {
+    width: 200px;
+    height: 1px;
+    background-color: rgba(255, 255, 255, 0.6);
+    margin: 15px 0 25px 0;
+}
+
+.quote-mark {
+    font-family: 'Georgia', serif;
+    font-size: 2rem;
+    opacity: 0.8;
+}
+
+.quote-text {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1.05rem;
+    font-weight: 300;
+    line-height: 1.6;
+}
+
+.scroll-down-arrow {
+    margin-top: 25px;
+    color: rgba(255, 255, 255, 0.8);
+    animation: bounce 2s infinite;
+}
+
+@keyframes bounce {
+    0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
+    40% { transform: translateY(-8px); }
+    60% { transform: translateY(-4px); }
+}
+
+/* ==========================================
+   3. CORTE ONDULADO DOBLE
+   ========================================== */
+.wave-divider {
+    position: absolute;
+    bottom: -1px;
+    left: 0;
+    width: 100%;
+    line-height: 0;
+    z-index: 3;
+    pointer-events: none;
+}
+
+.wave-svg {
+    width: 100%;
+    height: 220px;
+    display: block;
+}
+
+/* ==========================================
+   4. TEMPORIZADOR ELEVADO (+40% ADICIONAL)
+   ========================================== */
+.countdown-overlap-wrapper {
+    position: relative;
+    width: 100%;
+    z-index: 10;
+    margin-top: -295px; /* Elevación incrementada un 40% adicional */
+    display: flex;
+    justify-content: center;
+    pointer-events: none;
+}
+
+.countdown-section {
+    pointer-events: auto;
+    background: transparent !important;
+    padding: 0 !important;
+    width: 100%;
+    display: flex !important;
+    justify-content: center;
+}
+
+.countdown-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+
+/* ==========================================
+   5. EVENTOS Y UBICACIONES (DÍA DE LA BODA)
+   ========================================== */
+.events-section, 
+.gallery-section {
+    padding: 60px 20px;
+    align-items: center;
+    background-color: var(--bg-cream);
+}
+
+.events-container {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 40px;
+    width: 100%;
+    max-width: 1100px;
+    margin: 0 auto;
+}
+
+.event-card {
+    flex: 1 1 350px;
+    max-width: 450px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* ==========================================
+   6. RESPONSIVO PARA MÓVILES (+40% ELEVACIÓN)
+   ========================================== */
+@media (max-width: 768px) {
+    .bride-groom-name { 
+        font-size: 3.8rem; 
+    }
+
+    .wave-svg {
+        height: 140px;
+    }
+
+    .countdown-overlap-wrapper {
+        margin-top: -195px; /* Elevado proporcionalmente para tablets y celulares grandes */
+    }
+
+    .events-container {
+        flex-direction: column;
+        align-items: center;
+    }
+}
+
+@media (max-width: 480px) {
+    .bride-groom-name { 
+        font-size: 3.2rem; 
+    }
+
+    .wave-svg {
+        height: 100px;
+    }
+
+    .countdown-overlap-wrapper {
+        margin-top: -155px; /* Elevado proporcionalmente para móviles pequeños */
+    }
+}
+/*
+*/
+
+/* ==========================================
+   ESTILOS PLANOS DE TARJETAS Y MODALES (TIPOGRAFÍA PROYECTO)
+   ========================================== */
+.fiesta-details-section {
+    position: relative;
+    padding: 80px 20px;
+    background-color: var(--bg-cream, #F8F6F2);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+}
+
+/* Encabezado */
+.fiesta-header {
+    text-align: center;
+    margin-bottom: 50px;
+}
+
+.fiesta-title {
+    font-family: 'Alex Brush', cursive;
+    font-size: 4rem;
+    font-weight: 400;
+    color: var(--green-dark, #4A6B62);
+    margin-bottom: 10px;
+}
+
+.fiesta-subtitle {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1.05rem;
+    color: #666666;
+    font-weight: 300;
+    max-width: 600px;
+}
+
+/* Rejilla para 2 Tarjetas */
+.cards-grid {
+    display: flex;
+    justify-content: center;
+    gap: 35px;
+    width: 100%;
+    max-width: 800px;
+}
+
+/* Tarjeta individual */
+.fiesta-card {
+    background: #FFFFFF;
+    border-radius: 20px;
+    padding: 40px 30px;
+    flex: 1;
+    max-width: 360px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.04);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.fiesta-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 35px rgba(0,0,0,0.08);
+}
+
+.card-title {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1.35rem;
+    color: var(--gold-accent, #D3B168);
+    font-weight: 600;
+    margin-bottom: 25px;
+}
+
+/* Icono personalizable en la tarjeta */
+.card-icon-wrapper {
+    width: 70px;
+    height: 70px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 25px;
+}
+
+.card-custom-icon {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+}
+
+.card-text {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 0.95rem;
+    color: #666666;
+    font-weight: 300;
+    line-height: 1.5;
+    margin-bottom: 30px;
+    min-height: 45px;
+}
+
+/* Botón estilo cápsula */
+.modal-trigger-btn {
+    background-color: #FFFFFF;
+    color: var(--green-dark, #4A6B62);
+    border: 1.5px solid #E5E0D8;
+    padding: 12px 35px;
+    border-radius: 30px;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 0.85rem;
+    font-weight: 600;
+    letter-spacing: 1px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.modal-trigger-btn:hover {
+    background-color: var(--green-sage, #8FA89B);
+    color: #FFFFFF;
+    border-color: var(--green-sage, #8FA89B);
+}
+
+/* Ventanas Emergentes (Modales) */
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(30, 38, 44, 0.65);
+    backdrop-filter: blur(4px);
+    display: none;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+    padding: 20px;
+}
+
+.modal-overlay.active {
+    display: flex;
+}
+
+.modal-box {
+    background: var(--bg-cream, #F8F6F2);
+    border-radius: 24px;
+    padding: 45px 35px;
+    max-width: 500px;
+    width: 100%;
+    max-height: 88vh;
+    overflow-y: auto;
+    position: relative;
+    box-shadow: 0 20px 40px rgba(0,0,0,0.2);
+    text-align: center;
+    animation: modalFadeIn 0.3s ease;
+}
+
+@keyframes modalFadeIn {
+    from { opacity: 0; transform: translateY(-20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.modal-close-btn {
+    position: absolute;
+    top: 18px;
+    right: 22px;
+    background: none;
+    border: none;
+    font-size: 1.8rem;
+    color: #888888;
+    cursor: pointer;
+    transition: color 0.2s ease;
+}
+
+.modal-close-btn:hover {
+    color: var(--green-dark, #4A6B62);
+}
+
+.modal-title {
+    font-family: 'Alex Brush', cursive;
+    font-size: 3.5rem;
+    font-weight: 400;
+    color: var(--green-dark, #4A6B62);
+    margin-bottom: 20px;
+    line-height: 1.1;
+}
+
+/* ==========================================
+   AJUSTE ESPECÍFICO: MODAL DRESS CODE
+   ========================================== */
+.modal-image-container {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 20px 0 25px 0;
+}
+
+/* Imagen de vestuario centrada y pequeña */
+.modal-custom-img {
+    max-width: 110px;
+    height: auto;
+    object-fit: contain;
+    display: block;
+    margin: 0 auto;
+}
+
+.modal-description {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1rem;
+    color: #444444;
+    font-weight: 300;
+    line-height: 1.6;
+    margin-bottom: 14px;
+}
+
+.modal-description strong {
+    font-weight: 600;
+}
+
+.modal-note {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 0.9rem;
+    color: #777777;
+    font-style: italic;
+    margin-top: 20px;
+}
+
+/* ==========================================
+   AJUSTE ESPECÍFICO: MODAL TIPS Y NOTAS (ESPACIEDO AIREADO)
+   ========================================== */
+.modal-header-icon {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 15px;
+}
+
+.modal-tips-list {
+    text-align: left;
+    list-style: none;
+    padding: 10px 5px 0 5px;
+}
+
+.modal-tips-list li,
+.tip-item {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 0.95rem;
+    font-weight: 300;
+    color: #444444;
+    margin-bottom: 24px; /* Mayor separación entre ítems para evitar saturación */
+    line-height: 1.7;    /* Altura de línea para respirar entre párrafos */
+}
+
+.modal-tips-list li:last-child,
+.tip-item:last-child {
+    margin-bottom: 10px;
+}
+
+.modal-tips-list li strong,
+.tip-item strong {
+    font-weight: 600;
+    color: var(--green-dark, #4A6B62);
+}
+
+.contact-block {
+    margin-top: 30px;
+    padding-top: 20px;
+    border-top: 1px solid #EAE5DC;
+    text-align: center;
+}
+
+.contact-header {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 0.95rem;
+    color: var(--green-dark, #4A6B62);
+    margin-bottom: 12px;
+    line-height: 1.5;
+}
+
+.contact-numbers {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 0.95rem;
+    color: var(--gold-accent, #D3B168);
+    line-height: 1.8;
+}
+
+.contact-numbers a {
+    color: var(--green-dark, #4A6B62);
+    text-decoration: underline;
+}
+
+/* Responsivo para Celulares */
+@media (max-width: 768px) {
+    .cards-grid {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .fiesta-card {
+        width: 100%;
+        max-width: 100%;
+    }
+    
+    .fiesta-title {
+        font-size: 3.2rem;
+    }
+
+    .modal-box {
+        padding: 35px 20px;
+    }
+
+    .modal-custom-img {
+        max-width: 90px;
+    }
+}
+/* ==========================================
+   SECCIÓN CONFIRMACIÓN DE ASISTENCIA (RSVP)
+   ========================================== */
+.rsvp-section {
+    position: relative;
+    padding: 80px 20px;
+    background-color: var(--bg-cream, #F8F6F2);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+}
+
+/* Encabezado fuera de la card con tipografía del proyecto */
+.rsvp-header {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.rsvp-title {
+    font-family: 'Alex Brush', cursive;
+    font-size: 4rem;
+    font-weight: 400;
+    color: var(--green-dark, #4A6B62);
+    margin-bottom: 10px;
+}
+
+.rsvp-subtitle {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1.05rem;
+    color: #666666;
+    font-weight: 300;
+    max-width: 600px;
+}
+
+/* Contenedor que fuerza el centrado perfecto en PC y Móvil */
+.rsvp-card-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    max-width: 800px;
+}
+
+/* Ajustes específicos para el botón como enlace */
+.rsvp-btn {
+    text-decoration: none;
+    display: inline-block;
+    text-align: center;
+}
+
+/* ==========================================
+   ANIMACIÓN CSS SOBRE ABRIÉNDOSE
+   ========================================== */
+.envelope-wrapper {
+    width: 60px;
+    height: 45px;
+    position: relative;
+}
+
+.envelope {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    background-color: #E5E0D8;
+    border-radius: 4px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.06);
+    transition: transform 0.6s ease;
+}
+
+/* Bolsillo frontal del sobre */
+.envelope-pocket {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 0;
+    border-left: 30px solid var(--green-sage, #8FA89B);
+    border-right: 30px solid var(--green-sage, #8FA89B);
+    border-bottom: 22px solid var(--green-dark, #4A6B62);
+    border-top: 23px solid transparent;
+    border-radius: 0 0 4px 4px;
+    z-index: 3;
+}
+
+/* Solapa superior que rota */
+.envelope-flap {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 0;
+    height: 0;
+    border-left: 30px solid transparent;
+    border-right: 30px solid transparent;
+    border-top: 24px solid var(--green-dark, #4A6B62);
+    transform-origin: top;
+    transition: transform 0.6s ease, z-index 0.3s ease;
+    z-index: 4;
+}
+
+/* Carta interior */
+.envelope-letter {
+    position: absolute;
+    bottom: 4px;
+    left: 6px;
+    width: 48px;
+    height: 35px;
+    background: #FFFFFF;
+    border-radius: 2px;
+    z-index: 2;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+    transition: transform 0.6s ease 0.2s;
+}
+
+.letter-text {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 0.65rem;
+    font-weight: 700;
+    color: var(--gold-accent, #D3B168);
+    letter-spacing: 1px;
+}
+
+/* DISPARADOR DE LA ANIMACIÓN AL HACER SCROLL */
+.rsvp-card.animate .envelope-flap {
+    transform: rotateX(180deg);
+    z-index: 1;
+}
+
+.rsvp-card.animate .envelope-letter {
+    transform: translateY(-18px);
+}
+
+.rsvp-card.animate .envelope {
+    transform: scale(1.05);
+}
+
+/* Responsivo para móviles */
+@media (max-width: 768px) {
+    .rsvp-title {
+        font-size: 3.2rem;
+    }
+}
+/* ==========================================
+   ASEGURAR QUE LAS SECCIONES Y TARJETAS QUEDEN POR ENCIMA
+   ========================================== */
+.fiesta-details-section,
+.rsvp-section,
+.fiesta-card,
+.modal-box,
+.fiesta-header,
+.rsvp-header {
+    position: relative;
+    z-index: 2; /* Garantiza que las tarjetas y textos estén por encima de la animación */
+}
+/* ==========================================
+   DIVISORES ONDULADOS MODULARES
+   ========================================== */
+
+.ribbon-divider {
+    width: 100%;
+    height: 120px; /* Altura regulable según qué tan grande quieras la ola */
+    position: relative;
+    overflow: hidden;
+    pointer-events: none;
+    z-index: 1;
+    margin: 20px 0; /* Separación vertical con los demás bloques */
+}
+
+.ribbon-divider svg {
+    width: 100%;
+    height: 100%;
+    display: block;
+}
+
+/* Animación sutil de respiración en las olas */
+.ribbon-divider svg path {
+    animation: ribbonWaveMotion 7s ease-in-out infinite alternate;
+}
+
+.ribbon-divider svg path:nth-child(2) {
+    animation-duration: 9s;
+    animation-delay: -2s;
+}
+
+.ribbon-divider svg path:nth-child(3) {
+    animation-duration: 11s;
+    animation-delay: -4s;
+}
+
+@keyframes ribbonWaveMotion {
+    0% {
+        transform: translateY(0px);
+    }
+    100% {
+        transform: translateY(6px);
+    }
+}
+
+/* Variación opcional: invertido horizontalmente */
+.ribbon-divider.flip-x {
+    transform: scaleX(-1);
+}
+
+/* Variación opcional: invertido verticalmente */
+.ribbon-divider.flip-y {
+    transform: scaleY(-1);
+}
+
+/* Responsivo para móviles */
+@media (max-width: 768px) {
+    .ribbon-divider {
+        height: 80px;
+    }
+}
+/* ==========================================
+   SECCIÓN LLUVIA DE SOBRES (ANIMACIÓN SIN BUGS)
+   ========================================== */
+
+.lluvia-sobres-section {
+    position: relative;
+    padding: 60px 20px;
+    background-color: var(--bg-cream, #F8F6F2);
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+}
+
+.sobres-title {
+    font-family: 'Alex Brush', cursive;
+    font-size: 3.8rem;
+    font-weight: 400;
+    color: var(--green-dark, #4A6B62);
+    margin-bottom: 8px;
+    line-height: 1.2;
+}
+
+.sobres-subtitle {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1.05rem;
+    font-weight: 300;
+    color: #666666;
+    margin-bottom: 25px;
+    max-width: 600px;
+}
+
+.sobres-icon-wrapper {
+    width: 75px;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.envelope-draw-svg {
+    width: 100%;
+    height: 100%;
+    display: block;
+    overflow: visible;
+}
+
+/* Trazo y trazado de líneas */
+.draw-line {
+    fill: none;
+    stroke: var(--green-dark, #4A6B62);
+    stroke-width: 3.5;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    stroke-dasharray: 300;
+    stroke-dashoffset: 300;
+    animation: drawLinesSeq 5s ease-in-out infinite;
+}
+
+.body-line { animation-delay: 0s; }
+.fold-line-1, .fold-line-2 { animation-delay: 0.2s; }
+
+/* Animación de la solapa: Trazado + Movimiento de Apertura Estable */
+.flap-line {
+    animation: drawFlapSeq 5s ease-in-out infinite;
+    transform-origin: 50% 25%;
+}
+
+/* Tarjeta interna que emerge */
+.envelope-paper {
+    fill: #FFFFFF;
+    stroke: var(--gold-accent, #D3B168);
+    stroke-width: 1.5;
+    opacity: 0;
+    animation: revealCardSeq 5s ease-in-out infinite;
+}
+
+/* ------------------------------------------
+   KEYFRAMES SINCRO Y SIN PARPADEOS
+   ------------------------------------------ */
+
+/* Trazado base */
+@keyframes drawLinesSeq {
+    0% {
+        stroke-dashoffset: 300;
+        opacity: 0;
+    }
+    30%, 85% {
+        stroke-dashoffset: 0;
+        opacity: 1;
+    }
+    100% {
+        stroke-dashoffset: 0;
+        opacity: 0;
+    }
+}
+
+/* Solapa: Se dibuja primero y luego se abre hacia arriba */
+@keyframes drawFlapSeq {
+    0% {
+        stroke-dashoffset: 300;
+        transform: scaleY(1);
+        opacity: 0;
+    }
+    30% {
+        stroke-dashoffset: 0;
+        transform: scaleY(1);
+        opacity: 1;
+    }
+    50%, 85% {
+        stroke-dashoffset: 0;
+        transform: scaleY(-0.85) translateY(-5px); /* Apertura limpia en 2D sin bugs de render */
+        opacity: 1;
+    }
+    100% {
+        stroke-dashoffset: 0;
+        transform: scaleY(1);
+        opacity: 0;
+    }
+}
+
+/* Tarjeta subiendo suavemente */
+@keyframes revealCardSeq {
+    0%, 45% {
+        opacity: 0;
+        transform: translateY(0);
+    }
+    60%, 85% {
+        opacity: 1;
+        transform: translateY(-14px);
+    }
+    100% {
+        opacity: 0;
+        transform: translateY(0);
+    }
+}
+
+/* Ajustes móviles */
+@media (max-width: 768px) {
+    .sobres-title { font-size: 3.2rem; }
+    .sobres-subtitle { font-size: 0.95rem; }
+    .sobres-icon-wrapper { width: 62px; height: 50px; }
+}

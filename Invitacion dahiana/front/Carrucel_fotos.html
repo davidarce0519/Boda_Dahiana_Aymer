@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Galería de Boda - Dahiana & Hemer</title>
+
+    <!-- Fuente Script (Great Vibes) idéntica a la referencia -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap" rel="stylesheet">
+
+    <!-- Hoja de estilos externa -->
+    <link rel="stylesheet" href="Carrucel_fotos.css">
+</head>
+<body>
+
+    <section class="gallery-section">
+        
+        <!-- Título con la tipografía de la imagen -->
+        <h1 class="gallery-title">Retratos de nuestro amor</h1>
+
+        <!-- Icono de cámara en SVG -->
+        <div class="camera-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="#4A6B62" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"></path>
+                <circle cx="12" cy="13" r="4"></circle>
+            </svg>
+        </div>
+
+        <!-- Carrusel con tarjetas infinitas -->
+        <div class="carousel-container" id="carouselContainer">
+            <div class="carousel-track" id="carouselTrack">
+                <!-- Bloque 1 de fotos -->
+                <div class="photo-card"><img src="fotos_boda/foto1.jpg" alt="Boda 1"></div>
+                <div class="photo-card"><img src="fotos_boda/foto2.jpg" alt="Boda 2"></div>
+                <div class="photo-card"><img src="fotos_boda/foto3.jpg" alt="Boda 3"></div>
+                <div class="photo-card"><img src="fotos_boda/foto4.jpg" alt="Boda 4"></div>
+
+                <!-- Bloque 2 (Duplicado exacto para el efecto infinito) -->
+                <div class="photo-card"><img src="fotos_boda/foto1.jpg" alt="Boda 1"></div>
+                <div class="photo-card"><img src="fotos_boda/foto2.jpg" alt="Boda 2"></div>
+                <div class="photo-card"><img src="fotos_boda/foto3.jpg" alt="Boda 3"></div>
+                <div class="photo-card"><img src="fotos_boda/foto4.jpg" alt="Boda 4"></div>
+            </div>
+        </div>
+
+        <!-- Indicadores / Puntos de navegación -->
+        <div class="carousel-dots">
+            <span class="dot active"></span>
+            <span class="dot"></span>
+            <span class="dot"></span>
+            <span class="dot"></span>
+        </div>
+
+    </section>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const container = document.getElementById('carouselContainer');
+            const track = document.getElementById('carouselTrack');
+            const dots = document.querySelectorAll('.dot');
+
+            // Pausa la animación al pasar el mouse
+            container.addEventListener('mouseenter', () => {
+                track.style.animationPlayState = 'paused';
+            });
+
+            // Reanuda la animación al quitar el mouse
+            container.addEventListener('mouseleave', () => {
+                track.style.animationPlayState = 'running';
+            });
+
+            // Rotación de puntos indicadores
+            let activeDotIndex = 0;
+            setInterval(() => {
+                dots[activeDotIndex].classList.remove('active');
+                activeDotIndex = (activeDotIndex + 1) % dots.length;
+                dots[activeDotIndex].classList.add('active');
+            }, 3000);
+        });
+    </script>
+
+</body>
+</html>
